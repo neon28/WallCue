@@ -1,153 +1,169 @@
 # WallCue 0.1.8
 
-**适用于 Beat Saber PC 版 1.44.1 · 群内测试版**
+[简体中文](README-CN.md) | **English**
 
-WallCue 是一个撞墙提示 Mod，适合 FitBeat 等需要频繁下蹲、侧闪的谱面。它提供墙框预警、撞墙计数和固定位置的碰撞图标，帮助你确认是否躲开了墙，尤其是很薄、经过很快的墙。
+**Test build for Beat Saber PC 1.44.1**
 
-这是 PC 游戏插件，Quest 通过串流游玩 PC 版时可以使用；不适用于 Quest 独立版。
+WallCue adds visual wall warnings and collision feedback to Beat Saber. It is designed for FitBeat and other maps with frequent crouching and dodging. Wall outline cues, a wall-hit counter, and a fixed-position hit icon make it easier to tell whether you cleared a wall—especially a thin wall that passes too quickly to notice.
 
-## 功能介绍
+This is a **PC mod**. It can be used when playing the PC version through a Quest headset via PC streaming. It does **not** support standalone Quest Beat Saber.
 
-### 墙框提示
+## Features
 
-- **黄色**：按你当前的头部位置继续保持下去，可能撞上前方墙，或离墙边缘的安全余量不足。
-- **红色与透明闪烁**：游戏已判定头部正在撞墙。
-- **恢复原样**：已经处于安全位置，或已离开墙。
+### Wall outline cues
 
-黄色提示会随你下蹲、侧闪而变化。它不预测你接下来的动作，也不等于已经发生碰撞。
+- **Yellow:** Staying at your current head position would put you in the path of an approaching wall, or you are within the configured safety margin of its edge.
+- **Flashing red/transparent:** The game is detecting a head collision with the wall.
+- **Original appearance:** You are clear of the warning area or have moved out of the wall.
 
-### Wall Hits：撞墙计数器
+Yellow cues update as you crouch or move sideways. They use your current head position; they do not predict your next movement. A yellow cue does not mean a collision has already occurred.
 
-HUD 上分两行显示 `Wall Hits` 和本局撞墙数。每面墙首次发生实际碰撞时加 1，数字变红 **0.5 秒** 后恢复白色。
+### Wall Hits counter
 
-同一面墙持续碰撞，或离开后再次碰到，都只计一次；碰到不同墙分别计数。进入新谱面或重开时归零。
+A two-line HUD counter displays `Wall Hits` above the number of walls hit in the current run. Each newly hit wall adds 1, and the number turns red for **0.5 seconds** before returning to white.
 
-### Wall Hit Icon：碰撞图标
+Each wall is counted only once. Staying inside a wall, or leaving and re-entering the same wall, does not add another hit. Different walls are counted separately. The count resets when starting or restarting a map.
 
-每次新增撞墙计数时，在固定位置显示一个白色图标：**淡入 0.1 秒 → 保持 0.3 秒 → 淡出 0.1 秒**。
+### Wall Hit Icon
 
-即使墙很薄、已经经过，图标也会完成这段显示。连续碰到不同墙会延长显示，不会叠出多个图标。
+Each new wall hit triggers a white icon at a fixed HUD position:
 
-计数与图标均以游戏的实际头部碰撞为依据，光剑碰墙不算。WallCue 不修改游戏的碰撞判定、血量或得分规则。
+**0.1-second fade-in → 0.3-second hold → 0.1-second fade-out**
 
-## 安装与更新
+The icon completes its animation even if the wall has already passed. Hitting several walls in quick succession refreshes the display instead of stacking multiple icons.
 
-需要先安装适配 **Beat Saber 1.44.1** 的以下依赖：
+The counter and icon use the game's actual **head-collision** results. Saber contact with a wall does not count. WallCue does not change collision detection, health, or scoring rules.
 
-| 依赖 | 本版要求 |
+## Installation and updates
+
+Install versions of the following dependencies that are compatible with **Beat Saber 1.44.1**:
+
+| Dependency | Required version |
 | --- | --- |
-| BSIPA | 4.3.6 起，4.x |
-| SiraUtil | 3.3.1 起，3.x |
-| BeatSaberMarkupLanguage（BSML） | 1.14.1 起，1.x |
-| Counters+ | 2.3.12 起，2.x；本版使用 2.3.12 测试 |
+| BSIPA | 4.3.6 or later within 4.x |
+| SiraUtil | 3.3.1 or later within 3.x |
+| BeatSaberMarkupLanguage (BSML) | 1.14.1 or later within 1.x |
+| Counters+ | 2.3.12 or later within 2.x; tested with 2.3.12 |
 
-版本号满足要求的同时，依赖本身也必须适配游戏版本。安装包不包含这些依赖。
+Dependencies must support your game version as well as meet these version requirements. They are not included in the WallCue package.
 
-1. 退出游戏。
-2. 将压缩包中的 `Plugins/WallCue.dll` 放入游戏目录的 `Plugins` 文件夹。
-3. 更新时覆盖旧文件，不要同时保留改名的旧版 DLL。
-4. 启动游戏，按下方说明调整设置。
+1. Close Beat Saber.
+2. Copy `Plugins/WallCue.dll` from the release archive into your game's `Plugins` folder.
+3. When updating, replace the existing DLL. Do not keep renamed copies of older versions alongside it.
+4. Launch the game and configure the mod using the settings below.
 
-使用 BSManager 时，请放进 **1.44.1 对应实例** 的目录。图标已包含在 DLL 内，不需要另放图片，也不需要安装 HitScoreVisualizer 或 Enhancements。
+If you use BSManager, install the DLL into the **1.44.1 instance** you intend to play. The icon is embedded in the DLL; no separate image file is needed. HitScoreVisualizer and Enhancements are not required.
 
-更新可保留原配置。卸载时退出游戏并移走 `Plugins/WallCue.dll` 即可。
+You can keep your existing configuration when updating. To uninstall, close the game and remove `Plugins/WallCue.dll`.
 
-## 调整预警距离与灵敏度
+## Warning distance and sensitivity
 
-入口：**选歌界面左侧 → Mods → WallCue**。
+Open **Mods → WallCue** on the left side of the song-selection screen.
 
-| 选项 | 作用 | 默认值 |
+| Setting | Function | Default |
 | --- | --- | --- |
-| Limit warning distance | 开启时限制前方墙的预警距离；关闭时不限距离 | 关闭 |
-| Warning distance | 预警距离，5–25 米，步长 0.1 米 | 10.0 米 |
-| Sensitivity | 黄色提示的额外安全余量，0–10 厘米，步长 1 厘米 | 5 厘米 |
+| Limit warning distance | When enabled, limits how far ahead yellow warnings appear. When disabled, there is no distance limit. | Off |
+| Warning distance | Sets the forward warning distance from 5 to 25 metres, in 0.1-metre increments. | 10.0 m |
+| Sensitivity | Adds a safety margin to yellow cues, from 0 to 10 centimetres in 1-centimetre increments. | 5 cm |
 
-关闭距离限制时，距离滑条会置灰，但保留上次的数值。开启后可拖动滑条，或用两侧按钮微调。
+When the distance limit is off, the distance slider is disabled but retains its previous value. Enable the limit to adjust it by dragging the slider or using the buttons at either end.
 
-**灵敏度越大，黄色提示要求留出的安全余量越大。** 例如从 5 厘米调到 10 厘米，需要蹲得更低或侧闪得更远，黄色才会消失。0 厘米表示不加额外余量，直接会撞到的墙仍会预警。灵敏度不会改变实际撞墙判定。
+**Higher sensitivity means more clearance is required before the yellow cue disappears.** For example, increasing the margin from 5 cm to 10 cm means you need to crouch lower or move farther sideways to clear the warning. At 0 cm, there is no extra margin, but walls directly in your path still trigger warnings. Sensitivity does not change the game's actual collision detection.
 
-距离设置只限制前方墙的黄色预警，不限制实际撞墙时的红色闪烁、计数或图标。不限距离也只对游戏已经生成的墙生效，不会提前显示整首歌的所有墙。
+The distance limit only affects yellow warnings for approaching walls. It does not restrict red collision flashing, the counter, or the hit icon. Unlimited distance still applies only to walls that the game has already spawned; it does not reveal every wall in the map in advance.
 
-设置自动保存，改好后直接进入谱面即可，无需重启。不同歌曲共用这套设置，不会自动切换预设。如果找不到 WallCue 标签，可用 Mods 栏的左右箭头翻页，或通过眼睛按钮检查标签是否被隐藏。
+Changes are saved automatically. Adjust the settings and start a map—no game restart is needed. Settings are shared across maps; there are no automatic per-map presets.
 
-## 调整计数器和图标
+If the WallCue tab is missing, use the arrow buttons to browse the Mods tabs, or check the eye button to see whether the tab is hidden.
 
-入口：**Counters+ 设置 → Counters 列表**。
+## Counter and icon settings
 
-| 项目 | 用途 | 初次安装默认位置 |
+Open **Counters+ settings → Counters**.
+
+| Item | Purpose | Default placement |
 | --- | --- | --- |
-| Wall Hits | 撞墙计数器 | Below Combo，Distance 2 |
-| Wall Hit Icon | 固定位置碰撞图标 | Over Highway，Distance 0 |
+| Wall Hits | Wall-hit counter | Below Combo, Distance 2 |
+| Wall Hit Icon | Fixed-position collision icon | Over Highway, Distance 0 |
 
-两项默认启用，可以分别设置 **Enabled（开关）、Position（位置）、Distance（位置偏移）和 Canvas（画布）**。需要更细的位置或大小调整时，可使用 Counters+ 的 Canvas 设置。这里的 `Distance` 用于摆放 HUD，与前面的预警距离无关。
+Both items are enabled by default. Each has its own **Enabled**, **Position**, **Distance**, and **Canvas** settings. Use Counters+ Canvas settings for finer control over placement and overall scale.
 
-图标在 Counters+ 预览里可能显示为 `Wall Hit Icon` 文字占位，进入谱面并撞墙后才会出现实际图标。
+The `Distance` setting here controls **HUD placement**. It is separate from WallCue's warning distance.
 
-**墙框开关也在 Counters+ → Wall Hits 的附加设置中：**
+The Counters+ preview may show the text `Wall Hit Icon` as a placeholder. The actual icon appears during gameplay when a collision occurs.
 
-| 选项 | 作用 |
+The wall outline controls are also available under **Counters+ → Wall Hits**, in its additional settings:
+
+| Setting | Function |
 | --- | --- |
-| Wall frame cues | 开关黄色预警与红色墙框闪烁；不会关闭计数器和图标 |
-| Test: all walls yellow | 墙框显示测试，正常游玩请保持关闭 |
+| Wall frame cues | Enables yellow outline cues and red collision flashing. Does not disable the counter or icon. |
+| Test: all walls yellow | Diagnostic outline test. Leave this off during normal play. |
 
-只想保留计数和图标时，关闭 `Wall frame cues` 即可。
+To use only the counter and icon, turn off `Wall frame cues`.
 
-## 兼容情况
+## Compatibility
 
-| 谱面或模式 | 当前情况 |
+| Map type or mode | Current status |
 | --- | --- |
-| 普通谱 / FitBeat | 已实测墙框、计数、图标及设置功能 |
-| Mapping Extensions（ME）谱 | 已有谱面实测正常，更多特殊墙仍欢迎测试 |
-| Noodle Extensions（NE）谱 | **自动关闭墙框效果，保留计数和图标**；0.1.8 已实测正常 |
-| BSPlus 多人模式 | 已在测试者环境中实测正常 |
-| 其他多人实现、战役、教程、回放、其他游戏版本 | 尚未充分验证 |
+| Standard maps / FitBeat | Outline cues, counter, icon, and settings have been tested in-game. |
+| Mapping Extensions (ME) maps | Tested successfully on a map using ME. More testing of unusual walls is welcome. |
+| Noodle Extensions (NE) maps | **Outline effects are automatically disabled; the counter and icon remain active.** Tested in-game with 0.1.8. |
+| BSPlus multiplayer | Tested successfully in the tester's setup. |
+| Other multiplayer implementations, Campaign, tutorials, replays, and other game versions | Not sufficiently tested. |
 
-NE 谱的装饰墙或不可碰撞墙，不会仅因视觉上穿过头部就计数；只有游戏实际判定的碰撞才触发反馈。NE 谱关闭墙框效果是预期行为，切回普通谱会自动恢复。自动识别依赖谱面对当前难度的 NE 声明。
+On NE maps, decorative or non-collidable walls do not count as hits merely because they visually pass through your head. Feedback is triggered only by collisions detected by the game. Disabling outline effects on NE maps is intentional; they are restored when returning to a standard map. Automatic NE detection relies on the selected difficulty declaring Noodle Extensions.
 
-如果其他 Mod 隐藏了墙框，WallCue 不会强制让它重新显示；计数和图标仍可独立工作。动态墙色、特殊动画和不同 Mod 组合的兼容性仍需要更多玩家测试。
+If another mod hides wall outlines, WallCue does not force them to become visible. The counter and icon can still work independently. Compatibility with animated wall colours, unusual animations, and different combinations of mods needs further testing.
 
-## 常见问题
+## Troubleshooting
 
-**看不到计数器或图标？**
+### The counter or icon is missing
 
-检查 Counters+ 总开关、对应项目的 Enabled、位置及 Canvas，以及是否开启了隐藏 HUD 的选项。图标平时就是隐藏的，只有实际撞墙才会出现。
+Check the Counters+ master switch, the item's `Enabled` setting, its position and Canvas, and any settings that hide the HUD. The icon is normally hidden and appears only when you hit a wall.
 
-**墙没有变黄？**
+### Walls do not turn yellow
 
-确认 `Wall frame cues` 已开启；检查距离限制，以及自己是否已经躲到安全位置。NE 谱不显示墙框提示；其他 Mod 隐藏墙框也可能影响显示。
+Make sure `Wall frame cues` is enabled. Check the warning distance and whether your head is already in a safe position. NE maps intentionally have no outline cues. Other mods that hide wall outlines may also affect visibility.
 
-**所有墙一直是黄色？**
+### Every wall stays yellow
 
-检查并关闭 `Test: all walls yellow`。
+Turn off `Test: all walls yellow`.
 
-**短墙的红色闪烁看不清？**
+### Red flashing is hard to see on thin walls
 
-墙框闪烁仅在实际碰撞期间显示，薄墙经过很快。可使用独立持续 0.5 秒的计数变红和碰撞图标来确认。
+Outline flashing lasts only while an actual collision is occurring, so it can be very brief on thin walls. Use the counter's red flash and the hit icon for feedback that lasts 0.5 seconds independently of the wall.
 
-**计数器显示 `--`？**
+### The counter displays `--`
 
-表示当前关卡的碰撞检测不可用，不是零次碰撞。请提供日志反馈。
+Collision tracking is unavailable for the current level. This does not mean zero hits. Please include a log when reporting the issue.
 
-## Development
+## Development and feedback
 
-WallCue is currently under active development.
+WallCue is under active development. Bug reports, compatibility reports, and pull requests are welcome.
 
-Requirements:
-- .NET SDK 8+
+### Build requirements
+
+- Python 3
+- .NET SDK 8 or later
 - Beat Saber PC 1.44.1
-- BSIPA, SiraUtil, BSML and Counters+ installed
+- BSIPA, SiraUtil, BSML, and Counters+ installed
 
-Build:
+Run the following from the repository root:
+
+```powershell
 python build.py --game "D:\Path\To\Beat Saber"
-Bug reports, compatibility reports and pull requests are welcome.
+```
 
-When reporting an issue, please include:
-- Beat Saber version
-- WallCue version
-- Relevant mods
-- `_latest.log`
-- Steps to reproduce the issue
+### Reporting an issue
+
+Please include:
+
+- Beat Saber and WallCue versions.
+- Relevant mods and their versions.
+- The map link or BeatSaver ID and selected difficulty, including whether it uses NE or ME and whether you were playing multiplayer.
+- Steps to reproduce the issue, relevant settings, and expected versus actual behaviour.
+- The latest `_latest.log` from the game's `Logs` folder for the affected session.
+- Screenshots or a recording where helpful. For visual issues, a headset recording is especially useful.
 
 ## Author
 
-SD無 (GitHub: @neon28)
+SD無 (GitHub: [@neon28](https://github.com/neon28))
