@@ -10,6 +10,8 @@ This is a **PC mod**. It can be used when playing the PC version through a Quest
 
 ## Features
 
+<img width="544" height="419" alt="WallCue_graphical_sample" src="https://github.com/user-attachments/assets/d507e55f-17fd-412b-92a1-6eb10471c99f" />
+
 ### Wall outline cues
 
 - **Yellow:** Staying at your current head position would put you in the path of an approaching wall, or you are within the configured safety margin of its edge.
@@ -60,6 +62,8 @@ You can keep your existing configuration when updating. To uninstall, close the 
 
 Open **Mods → WallCue** on the left side of the song-selection screen.
 
+<img width="848" height="625" alt="MetaScreenshot1791016929" src="https://github.com/user-attachments/assets/2f7c78c8-4cdf-406f-9417-2773b640327f" />
+
 | Setting | Function | Default |
 | --- | --- | --- |
 | Limit warning distance | When enabled, limits how far ahead yellow warnings appear. When disabled, there is no distance limit. | Off |
@@ -79,6 +83,9 @@ If the WallCue tab is missing, use the arrow buttons to browse the Mods tabs, or
 ## Counter and icon settings
 
 Open **Counters+ settings → Counters**.
+
+<img width="950" height="635" alt="MetaScreenshot1791016169" src="https://github.com/user-attachments/assets/a33b2a4f-83aa-4cfc-8b3f-27da0b643333" />
+<img width="955" height="616" alt="MetaScreenshot1791016187" src="https://github.com/user-attachments/assets/53d72d3d-e673-4ce9-96a9-25e9e6f84175" />
 
 | Item | Purpose | Default placement |
 | --- | --- | --- |
