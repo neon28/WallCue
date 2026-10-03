@@ -7,6 +7,7 @@ WallCue 是一个撞墙提示 Mod，适合 FitBeat 等需要频繁下蹲、侧�
 这是 PC 游戏插件，Quest 通过串流游玩 PC 版时可以使用；不适用于 Quest 一体机版。
 
 ## 功能介绍
+<img width="544" height="419" alt="WallCue_graphical_sample" src="https://github.com/user-attachments/assets/a84ea2d0-96d3-4507-8733-1bd96b7ea2ad" />
 
 ### 墙框提示
 
@@ -53,6 +54,7 @@ HUD 上分两行显示 `Wall Hits` 和本局撞墙数。每面墙首次发生实
 更新可保留原配置。卸载时退出游戏并移走 `Plugins/WallCue.dll` 即可。
 
 ## 调整预警距离与灵敏度
+<img width="848" height="625" alt="MetaScreenshot1791016929" src="https://github.com/user-attachments/assets/671c3ef2-fcdb-42a4-a7f7-5468d2942264" />
 
 入口：**选歌界面左侧 → Mods → WallCue**。
 
@@ -71,6 +73,8 @@ HUD 上分两行显示 `Wall Hits` 和本局撞墙数。每面墙首次发生实
 设置自动保存，改好后直接进入谱面即可，无需重启。不同歌曲共用这套设置，不会自动切换预设。如果找不到 WallCue 标签，可用 Mods 栏的左右箭头翻页，或通过眼睛按钮检查标签是否被隐藏。
 
 ## 调整计数器和图标
+<img width="950" height="635" alt="MetaScreenshot1791016169" src="https://github.com/user-attachments/assets/9de69919-41d6-4fcf-b4ca-2d2ea0183a9c" />
+<img width="955" height="616" alt="MetaScreenshot1791016187" src="https://github.com/user-attachments/assets/875ae6a2-7c24-46f9-9f45-c7608a289941" />
 
 入口：**Counters+ 设置 → Counters 列表**。
 
@@ -136,6 +140,16 @@ NE 谱的装饰墙或不可碰撞墙，不会仅因视觉上穿过头部就计�
 - 谱面链接或 BeatSaver 编号、所选难度；是否为 NE / ME 谱、是否在多人模式。
 - 出现问题时的设置、操作步骤，以及预期效果与实际表现。
 - 游戏目录 `Logs` 文件夹中本次游玩的最新日志；有截图或录屏更好，显示问题优先提供头显画面。
+
+## AI 辅助开发说明
+
+WallCue 在开发过程中大量使用了 AI 辅助编程工具。
+
+项目的功能需求、预期行为、兼容性目标和版本发布由项目维护者决定，并通过实际的 Beat Saber 环境进行持续测试。AI 工具被广泛用于代码实现、问题排查、日志分析、代码重构和文档编写。
+
+AI 生成或修改的内容会经过编译和实际游戏测试后再发布，但不应视为所有源代码都经过了逐行人工代码审计。
+
+通过 GitHub Issue 和 Pull Request 提交的人工贡献会通过仓库历史进行记录和审查。
 
 ## 作者
 

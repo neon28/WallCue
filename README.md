@@ -171,6 +171,16 @@ Please include:
 - The latest `_latest.log` from the game's `Logs` folder for the affected session.
 - Screenshots or a recording where helpful. For visual issues, a headset recording is especially useful.
 
+## AI-assisted development
+
+WallCue is developed with extensive use of AI-assisted programming tools.
+
+The project owner defines the requirements, intended behaviour, compatibility goals, and release decisions, and performs iterative in-game testing on real Beat Saber setups. AI tools are used extensively for code implementation, debugging, log analysis, refactoring, and documentation.
+
+AI-generated changes are validated through builds and practical testing before release, but the source code should not be assumed to have received a complete line-by-line manual audit.
+
+Human contributions submitted through GitHub issues and pull requests are reviewed and tracked through the repository history.
+
 ## Author
 
 SD無 (GitHub: [@neon28](https://github.com/neon28))
