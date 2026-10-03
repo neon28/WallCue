@@ -6,6 +6,8 @@ WallCue 是一个撞墙提示 Mod，适合 FitBeat 等需要频繁下蹲、侧�
 
 这是 PC 游戏插件，Quest 通过串流游玩 PC 版时可以使用；不适用于 Quest 一体机版。
 
+适用于 Beat Saber PC 版 1.40.8 的版本[在这里](https://github.com/Hikari31768/WallCue/releases)
+
 ## 功能介绍
 <img width="544" height="419" alt="WallCue_graphical_sample" src="https://github.com/user-attachments/assets/a84ea2d0-96d3-4507-8733-1bd96b7ea2ad" />
 
