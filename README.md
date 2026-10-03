@@ -8,6 +8,8 @@ WallCue adds visual wall warnings and collision feedback to Beat Saber. It is de
 
 This is a **PC mod**. It can be used when playing the PC version through a Quest headset via PC streaming. It does **not** support standalone Quest Beat Saber.
 
+Mod for Beat Saber PC 1.40.8 also [available here](https://github.com/Hikari31768/WallCue/releases)
+
 ## Features
 
 <img width="544" height="419" alt="WallCue_graphical_sample" src="https://github.com/user-attachments/assets/d507e55f-17fd-412b-92a1-6eb10471c99f" />
